@@ -1,0 +1,32 @@
+<h1>Empreendimentos Cadastrados</h1>
+
+<div class="background" >
+  <div class="container" style="display: flex; flex-direction: row; flex-wrap: wrap; Justify-content :center" >
+    <p class="cadastro pt-5"></p>
+    <div class="row" style="display: flex; flex-direction: row; flex-wrap: wrap; padding: 10px; Justify-content :center">
+      <div class="col-3" *ngFor="let produto of produtos">
+        <mat-card class="listagem-produto">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title class="logo"><img src="{{produto.logo}}"></mat-card-title>
+          </mat-card-header>
+          <mat-card-content >
+            <p>Nome: {{ produto.nome | titlecase}}</p>
+            <p>Localização: {{ produto.localizacao | titlecase }}</p>
+            <p>Avaliação: {{ produto.avaliacao }}</p>
+            <p>Contato: {{ produto.contato | contato}}</p>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-icon-button (click)="apagarproduto(produto)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button [routerLink]="['cadastrarproduto/',produto.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
